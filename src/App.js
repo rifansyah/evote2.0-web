@@ -1,23 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Card, CardContent } from '@material-ui/core';
+import moment from 'moment';
 
 function App() {
+  function counterPage(type) {
+    const year = moment().format('YYYY')
+    window.location = year + '/count/' + type;
+  }
+
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: '#00A49A' }}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Card className="card-container" onClick={() => counterPage('presma')}>
+          <CardContent>
+            <p style={{ color: '#616161' }}>Presma</p>
+          </CardContent>
+        </Card>
+        <Card className="card-container" onClick={() => counterPage('dpm')}>
+          <CardContent>
+            <p style={{ color: '#616161' }}>DPM</p>
+          </CardContent>
+        </Card>
       </header>
     </div>
   );
